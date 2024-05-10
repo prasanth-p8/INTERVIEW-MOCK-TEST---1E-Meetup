@@ -2,7 +2,7 @@ import React from 'react'
 
 const MeetingContext = React.createContext({
   optionList: [],
-  userName: '',
+  Name: '',
   displayTopic: '',
   changeDisplayTopic: () => {},
   changeUserName: () => {},

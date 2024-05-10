@@ -25,7 +25,7 @@ const Register = props => {
     <MeetingContext.Consumer>
       {value => {
         const {
-          userName,
+          Name,
           optionList,
           meetingDetails,
           changeUserName,
@@ -43,15 +43,13 @@ const Register = props => {
 
         const submitUserDetails = event => {
           event.preventDefault()
-          if (userName === '') {
+          if (Name === '') {
             setErrorMsg(true)
           } else {
             changeDisplayTopic(meetingDetails)
             history.replace('/')
           }
         }
-
-        console.log(optionList)
 
         return (
           <RegisterContainer>
@@ -63,11 +61,12 @@ const Register = props => {
               <RegisterForm onSubmit={submitUserDetails}>
                 <FormHeading>Let us join</FormHeading>
                 <InputContainer>
-                  <NameLabel htmlFor="username">NAME</NameLabel>
+                  <NameLabel htmlFor="Name">NAME</NameLabel>
                   <UserNameInput
-                    id="username"
+                    type="text"
+                    id="Name"
                     placeholder="Your name"
-                    value={userName}
+                    value={Name}
                     onChange={changeUserValue}
                   />
                 </InputContainer>
@@ -79,7 +78,7 @@ const Register = props => {
                     value={meetingDetails}
                   >
                     {optionList.map(eachOption => (
-                      <TopicOption id={eachOption.id} key={eachOption.id}>
+                      <TopicOption value={eachOption.id} key={eachOption.id}>
                         {eachOption.displayText}
                       </TopicOption>
                     ))}

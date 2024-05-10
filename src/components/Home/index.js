@@ -14,7 +14,7 @@ import {
 const Home = () => (
   <MeetingContext.Consumer>
     {value => {
-      const {userName, displayTopic} = value
+      const {Name, displayTopic} = value
 
       const displayContent =
         displayTopic === '' ? (
@@ -27,7 +27,7 @@ const Home = () => (
           </>
         ) : (
           <>
-            <GreetingMessage>Hello {userName}</GreetingMessage>
+            <GreetingMessage>Hello {Name}</GreetingMessage>
             <TopicName>Welcome to {displayTopic}</TopicName>
           </>
         )

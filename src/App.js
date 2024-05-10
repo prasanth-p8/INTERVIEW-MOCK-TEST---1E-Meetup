@@ -38,13 +38,13 @@ const topicsList = [
 class App extends Component {
   state = {
     optionList: topicsList,
-    userName: '',
+    Name: '',
     meetingDetails: topicsList[0].id,
     displayTopic: '',
   }
 
-  changeUserName = userName => {
-    this.setState({userName})
+  changeUserName = Name => {
+    this.setState({Name})
   }
 
   changeMeeting = topic => {
@@ -52,17 +52,21 @@ class App extends Component {
   }
 
   changeDisplayTopic = displayTopic => {
-    this.setState({displayTopic})
+    const findTopic = topicsList.find(
+      eachTopic => eachTopic.id === displayTopic,
+    )
+
+    this.setState({displayTopic: findTopic.displayText})
   }
 
   render() {
-    const {optionList, userName, meetingDetails, displayTopic} = this.state
-    console.log(userName, meetingDetails, displayTopic)
+    const {optionList, Name, meetingDetails, displayTopic} = this.state
+    console.log(Name, meetingDetails, displayTopic)
     return (
       <MeetingContext.Provider
         value={{
           optionList,
-          userName,
+          Name,
           meetingDetails,
           displayTopic,
           changeUserName: this.changeUserName,
